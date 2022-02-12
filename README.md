@@ -1,60 +1,29 @@
 # pspdev-docker
 
-[![Publish Docker image](https://github.com/pspdev/pspdev-docker/actions/workflows/main.yml/badge.svg)](https://github.com/pspdev/pspdev-docker/actions/workflows/main.yml)
+[![Publish Docker image](https://github.com/filfreire/pspdev-docker/actions/workflows/main.yml/badge.svg)](https://github.com/filfreire/pspdev-docker/actions/workflows/main.yml)
 
-## What does this do?
-This program will automatically build a docker image with the pspdev toolchain ready to be used for homebrew development.
 
-## How do I build it?
+> ⚠️ Disclaimer: This fork from [pspdev-docker](https://github.com/pspdev/pspdev-docker) project might be unstable, and is edited for personal use.
+> ⚠️ Please refer to official [pspdev](https://github.com/pspdev/pspdev) project for the most up-to-date approach for using `pspdev` + Docker.
 
-#### Build the image:
-`sudo docker build -t pspdev-docker .`
+## How to build
 
-#### Copy the helper script:
-`sudo cp pspdev-docker /usr/local/bin`
+Build the image:
+```shell
+sudo docker build -t pspdev-docker .
+```
 
-## How do I use it?
 
-#### Use the helper script to run commands in the current directory:
-`pspdev-docker make`
+Copy the helper script to run from local build image:
+```shell
+sudo cp pspdev-docker-local /usr/local/bin`
+```
 
-## How do I save and load it?
+Or use image from docker registry:
+```shell
+sudo cp pspdev-docker /usr/local/bin`
+```
 
-#### Save the image:
-`sudo docker save pspdev-docker | bzip2 > pspdev-docker.tar.bz2`
+## How to run
 
-#### Load the image:
-`sudo docker load < bzip2 -dc pspdev-docker.tar.bz2`
-
-## How do I remove it?
-
-#### Remove the image:
-`sudo docker rmi pspdev-docker`
-
-#### Remove the helper script:
-`sudo rm /usr/local/bin/pspdev-docker`
-
-# Docker Windows
-
-Only follow these instructions if you use Docker Desktop on Windows (and not Linux like previously).
-
-## How do I build it? Docker Desktop Edition (Windows)
-
-#### Build the image:
-In Command Line, `docker build -t pspdev-docker .`
-
-## How do I use it?
-
-Run `docker run -v %cd%:/build --rm pspdev-docker make` in Command Line to build your homebrew in the same folder your Makefile and source code is present.
-
-## How do I save and load it?
-
-#### Save the image:
-`docker save pspdev-docker | bzip2 > pspdev-docker.tar.bz2`
-
-#### Load the image:
-`docker load < bzip2 -dc pspdev-docker.tar.bz2`
-
-## Basic troobleshooting
-
-Try to run your command line as admin.
+Use the helper script to run commands in the current directory: `pspdev-docker make`
